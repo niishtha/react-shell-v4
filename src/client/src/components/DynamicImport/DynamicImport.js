@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class DynamicImport extends Component {
+class DynamicImport extends React.Component {
   state = {
     component: null
   }
