@@ -1,0 +1,9 @@
+.idea
+.vscode
+.webpack
+cjs
+build
+coverage
+node_modules
+npm-debug.log*
+config.json

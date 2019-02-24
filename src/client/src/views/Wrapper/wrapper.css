@@ -1,0 +1,9 @@
+@import 'normalize.css';
+
+.wrapper {
+  display: block;
+  background-color: #fff;
+  margin: 0 auto;
+  height: 100%;
+  width: 1024px
+}

@@ -1,0 +1,26 @@
+{
+  "vendor": {
+    "js": "/clarisights/dist/client/vendor.js"
+  },
+  "CategorySelectorDropdown": {
+    "js": "/clarisights/dist/client/CategorySelectorDropdown.js"
+  },
+  "FinalSelectedList": {
+    "js": "/clarisights/dist/client/FinalSelectedList.js"
+  },
+  "SelectedValues": {
+    "js": "/clarisights/dist/client/SelectedValues.js"
+  },
+  "main": {
+    "js": "/clarisights/dist/client/main.js"
+  },
+  "runtime": {
+    "js": "/clarisights/dist/client/runtime.js"
+  },
+  "": {
+    "js": [
+      "/clarisights/dist/client/WorkerName.3e430afbf07a25ae4a6f.js",
+      "/clarisights/dist/client/offline/offline.00000002.js"
+    ]
+  }
+}
