@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import List from '../../../components/List/List';
 import Worker from '../../../workers/convertCategoriesDataToTrie.worker';
 
 class CategorySearch extends React.Component {
@@ -47,13 +48,18 @@ class CategorySearch extends React.Component {
           placeholder="Search for a category value"
           onKeyUp={this.handleSearch}
         />
-        <ul className="search__results">
-          {
-            searchResults && searchResults.map((searchResult) => (
-              <li className="search__results__item">{searchResult}</li>
-            ))
-          }
-        </ul>
+        {
+          searchResults.length ? (
+            <List.Container itemCount={searchResults.length}>
+              {({ index, style}) => (
+                <List.Item index={index} style={style}>
+                  { searchResults[index]}
+                </List.Item>
+              )}
+            </List.Container>
+          ) : null
+        }
+        
       </div>
     )
   }

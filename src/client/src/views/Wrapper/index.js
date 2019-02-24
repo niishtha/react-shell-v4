@@ -16,7 +16,7 @@ class Wrapper extends React.Component {
 
   toggleOutsideClick = () => this.setState((state) => ({
     isOutsideClicked: !state.isOutsideClicked,
-  }))
+  }));
 
   render() {
     const { savedValues, isOutsideClicked } = this.state;

@@ -10,7 +10,7 @@ class DynamicImport extends React.Component {
     this.props.load()
       .then((component) => {
         this.setState(() => ({
-          component: component.default ? component.default : component
+          component: component.default || component
         }))
       })
   }

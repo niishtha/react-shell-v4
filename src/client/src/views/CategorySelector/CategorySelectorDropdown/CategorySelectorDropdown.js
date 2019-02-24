@@ -34,10 +34,7 @@ class CategorySelectorDropDown extends React.Component {
                 </span>
               </Accordion.Title>
               <Accordion.Content className="category-selector__category">
-                <List.Container
-                  className="category-selector__categories__list"
-                  itemCount={category.values.length}
-                >
+                <List.Container itemCount={category.values.length}>
                   {({ index, style }) => (
                     <List.Item
                       style={style}
