@@ -11,8 +11,6 @@ self.addEventListener('message',  event => {
     trieForAllCategoryValues= trie(values);
   } else if( action === 'get-values') {
     const searchResults = trieForAllCategoryValues.getPrefix(searchStr);
-    console.log('search string', searchStr);
-    console.log('search results', searchResults);
     self.postMessage({  searchResults });
   }
 })

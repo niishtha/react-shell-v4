@@ -1,12 +1,12 @@
 {
   "apps": [{
-    "name": "cybertron-rodimus-local",
+    "name": "clarisights-local",
     "script": "./dist/server/main.js",
     "watch": "./build/server",
     "merge_logs": true,
     "log_date_format" : "YYYY-MM-DD HH:mm Z"
   }, {
-    "name": "cybertron-rodimus",
+    "name": "clarisights-development",
     "script": "./dist/server/main.js",
     "instances": 2,
     "exec_mode": "cluster",

@@ -22,14 +22,14 @@ class AccordionContainer extends React.Component {
 
   render() {
     const { selectedSection } = this.state;
-    const { children, className } = this.props;
+    const { children, className, isOutsideClicked } = this.props;
     return (
       <div className={cx('accordion', {[className]: className})}>
         {
           React.Children.map(children, (child, i) => (
             child && child.type === AccordionSection ? (
               React.cloneElement(child, {
-                isOpen: selectedSection === i,
+                isOpen: !isOutsideClicked && selectedSection === i,
                 handleClick: this.handleClick(i)
               })
             ) : null
@@ -46,6 +46,7 @@ AccordionContainer.propTypes = {
     PropTypes.object,
   ]),
   className: PropTypes.string,
+  isOutsideClicked: PropTypes.bool,
 }
 
 export default AccordionContainer;

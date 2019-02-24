@@ -11,7 +11,6 @@ const AccordionSection = (props) => {
     handleClick,
     className,
   } = props;
-  console.log('className being passed', className);
   return (
     <div className={cx("accordion__section", {[className]: className})}>
       {

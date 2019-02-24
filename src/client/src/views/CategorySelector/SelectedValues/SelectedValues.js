@@ -8,21 +8,19 @@ const SelectedValues = (props) => {
   return (
     <div className="category-selector__selected-values">
       <div className="category-selector__selected-values__title">Selected Values</div>
-      <List 
+      <List.Container 
         className="category-selector__selected-values__list"
         itemCount={selectedValues.length}
       >
         {({ index, style }) => (
-          <li
-            className={cx("list__item", {
-              'list__item__even': index % 2 === 0
-            })}
+          <List.Item
+            index={index}
             style={style}
           >
             {selectedValues[index].value}
-          </li>
+          </List.Item>
         )}
-      </List>
+      </List.Container>
     </div>
   )
 }

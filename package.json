@@ -10,8 +10,8 @@
     "local:server": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.server.js --watch",
     "local:serve": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ pm2 start pm2.json --only cybertron-rodimus-local",
     "postlocal": "npm stop",
-    "development:build": "run-s build:*",
-    "development:start": "node ./dist/server/main.js",
+    "development:build": "APP_PUBLIC_PATH=/clarisights/dist/client/ run-s build:*",
+    "development:start": "APP_PUBLIC_PATH=/clarisights/dist/client/ node ./dist/server/main.js",
     "build:client": "webpack --mode production --config webpack.client.js --progress",
     "build:server": "webpack --mode production --config webpack.server.js --progress"
   },

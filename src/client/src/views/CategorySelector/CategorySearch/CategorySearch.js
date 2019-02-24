@@ -32,7 +32,6 @@ class CategorySearch extends React.Component {
     }
     this.worker.onmessage = (event) => {
       const { searchResults } = event.data;
-      console.log(searchResults);
       this.setState({ searchResults });
     };
   }

@@ -55,12 +55,8 @@ class CategorySelector extends React.Component {
   handleDone = () => {
     const { selectedValuesData } = this.state;
     this.props.handleDone(selectedValuesData);
-    Promise.all([
-      import('./FinalSelectedList/FinalSelectedList' /* webpackChunkName: 'FinalSelectedList' */),
-    ]).then((modules) => {
-      this.setState({
-        FinalSelectedList: modules[0].default
-      });
+    this.setState({
+      selectedValuesData: []
     });
   }
 
@@ -73,6 +69,10 @@ class CategorySelector extends React.Component {
       SelectedValues,
       FinalSelectedList
     } = this.state;
+    const {
+      isOutsideClicked,
+      toggleOutsideClick,
+    } = this.props;
     return (
       <React.Fragment>
         <button
@@ -81,13 +81,20 @@ class CategorySelector extends React.Component {
         >
           Get Catgeories
         </button>
-        <div className="category-selector">
+        <div
+          className="category-selector"
+          onClick={(e) => {
+            e.stopPropagation();
+            if(isOutsideClicked) toggleOutsideClick();
+          }}
+        >
           {
             CategorySelectorDropdown ? (
               <CategorySelectorDropdown
                 categoriesData={categoriesData}
                 onSelectCategoryValue={this.onSelectCategoryValue}
                 onSelectFullCategory={this.onSelectFullCategory}
+                isOutsideClicked={isOutsideClicked}
               />
             ) : null
           }
@@ -103,13 +110,6 @@ class CategorySelector extends React.Component {
           )
         }
         <CategorySearch categoriesData={categoriesData} />
-        {
-          FinalSelectedList ? (
-            <div>The final selected list is
-              <FinalSelectedList selectedValues={selectedValuesData}/>
-            </div>
-          ) : null
-        }
       </React.Fragment>
     )
   }

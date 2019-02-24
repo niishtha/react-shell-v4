@@ -7,16 +7,23 @@ import List from '../../../components/List/List';
 class CategorySelectorDropDown extends React.Component {
   selectAll = (category) => (e) => {
     e.stopPropagation();
+    const { onSelectFullCategory  } = this.props
     onSelectFullCategory(category);
   }
+
   render() {
     const {
       categoriesData,
       onSelectCategoryValue,
       onSelectFullCategory,
+      isOutsideClicked,
     } = this.props;
+    
     return (
-      <Accordion.Container className="category-selector__categories">
+      <Accordion.Container
+        className="category-selector__categories"
+        isOutsideClicked={isOutsideClicked}
+      >
         {
           categoriesData.map((category) => (
             <Accordion.Section>
@@ -27,20 +34,20 @@ class CategorySelectorDropDown extends React.Component {
                 </span>
               </Accordion.Title>
               <Accordion.Content className="category-selector__category">
-                <List
+                <List.Container
                   className="category-selector__categories__list"
                   itemCount={category.values.length}
                 >
                   {({ index, style }) => (
-                    <li
-                      className={cx("list__item", {'list__item__even': index % 2 === 0})}
+                    <List.Item
                       style={style}
-                      onClick={() => this.selectAll(category.name, category.values[index])}
+                      onClick={() => onSelectCategoryValue(category.name, category.values[index])}
+                      index={index}
                     >
                       {category.values[index]}
-                    </li>
+                    </List.Item>
                   )}
-                </List>
+                </List.Container>
               </Accordion.Content>
             </Accordion.Section>
           ))

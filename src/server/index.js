@@ -15,7 +15,6 @@ app.use('/serviceWorker.js', express.static('dist/client/serviceWorker.js'));
 
 app.get('/categories-data', (req, res, next) => {
   const categoriesData = categories.getCategoriesData();
-  console.log(categoriesData);
   res.send(categoriesData);
 });
 

@@ -1,7 +1,3 @@
-self.addEventListener('install', (event) => {
-  console.log('I am installed');
-})
-
 self.addEventListener('fetch', (event) => {
   if (
     event.request.mode === 'navigate'
@@ -16,8 +12,4 @@ self.addEventListener('fetch', (event) => {
         ))
     );
   }
-});
-
-self.addEventListener('message', function(event){
-  console.log("SW Received Message: " + event.data);
 });
