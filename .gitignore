@@ -2,7 +2,8 @@
 .vscode
 .webpack
 cjs
-build
+dist
+dist/client/*
 coverage
 node_modules
 npm-debug.log*
