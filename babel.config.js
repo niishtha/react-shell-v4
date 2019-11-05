@@ -1,17 +1,9 @@
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "node": "8.10"
-        },
-        "modules": false
-      }
-    ],
+module.exports = {
+  presets: [
+    "@babel/preset-env",
     "@babel/preset-react"
   ],
-  "plugins": [
+  plugins: [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-syntax-import-meta",
@@ -33,5 +25,5 @@
     }],
     "@babel/plugin-proposal-nullish-coalescing-operator",
     "@babel/plugin-proposal-do-expressions"
-  ]
-}
+  ],
+};
