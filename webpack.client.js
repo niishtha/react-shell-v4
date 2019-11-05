@@ -25,6 +25,7 @@ module.exports = function(env){
         { test: /\.css$/, use: [ 'style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader']},
       ]
     },
+    devtool: 'source-map',
     optimization: {
       splitChunks: {
         cacheGroups: {

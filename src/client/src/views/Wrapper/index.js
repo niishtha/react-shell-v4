@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import CategorySelector from '../CategorySelector/CategorySelector';
-import FinalSelectedList from '../FinalSelectedList/FinalSelectedList';
+// import ReactDOM from 'react-dom';
+// import CategorySelector from '../CategorySelector/CategorySelector';
+// import FinalSelectedList from '../FinalSelectedList/FinalSelectedList';
+import AddressForm from '../AddressForm/AddressForm';
 import './wrapper.css';
 
 class Wrapper extends React.Component {
@@ -24,15 +25,11 @@ class Wrapper extends React.Component {
       <div
         className="wrapper"
         onClick={() => {
-          if(!isOutsideClicked) this.toggleOutsideClick();
+          console.log("clicked outside")
         }}
       >
-        <CategorySelector
-          handleDone={this.handleDone}
-          isOutsideClicked={isOutsideClicked}
-          toggleOutsideClick={this.toggleOutsideClick}
-        />
-        <FinalSelectedList savedValues={savedValues}/>
+        hello
+        <AddressForm></AddressForm>
       </div>
     );
   }
