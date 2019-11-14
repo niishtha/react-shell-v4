@@ -21,7 +21,7 @@ class AddressList extends React.Component {
         let {selectedAddressIndex} = this.state;
         return (
             <React.Fragment>
-            {addrList.map((addr, index)=><div key={index} onClick={this.handleAddressSelect(index)} className='placeList'>{addr.Name}</div>)}
+            {addrList.map((addr, index)=><div key={index} onClick={()=> this.handleAddressSelect(index)} className='placeList'>{addr.Name}</div>)}
             {selectedAddressIndex ? <div className='addressView'><AddressView address={addrList[selectedAddressIndex]} /></div>: null}
             </React.Fragment>
         );
