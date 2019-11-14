@@ -6,15 +6,14 @@ class AddressList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedAddressIndex: null
+            selectedAddressIndex: 2
         };
     }
 
-    handleAddressSelect(index){
-        return () => {
-            console.log(index);
-            this.setState({selectedAddressIndex: index});
-        }
+    handleAddressSelect = index=>{
+       this.setState({selectedAddressIndex: index});
+            
+        
     }
 
     render() {
