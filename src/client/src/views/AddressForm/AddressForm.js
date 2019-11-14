@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import './AddressForm.css';
 import Input from '../../components/Input/Input';
-import AddressView from '../../components/AddressView/AddressView';
+import AddressList from '../../components/AddressList/AddressList';
 import validatePincode from '../../utils/validator';
 
 
@@ -51,10 +51,7 @@ class AddressForm extends React.Component {
             Pincode:
             </label>
             <Input value={value} onChangeProp={this.handleChange}/>
-            {addrList.length? <React.Fragment>
-                {addrList.map((addr, index)=><div onClick={this.handleAddressSelect(index)}>{addr.Name}</div>)}
-            </React.Fragment>: null}
-            {selectedAddressIndex ? <div><AddressView address={addrList[selectedAddressIndex]} /></div>: null}
+            {addrList.length? <AddressList addrList={addrList} />: null}
         </div>
         );
     }
