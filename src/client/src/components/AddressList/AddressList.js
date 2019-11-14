@@ -6,12 +6,12 @@ class AddressList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedAddressIndex: 2
+            selectedAddressIndex: [2]
         };
     }
 
     handleAddressSelect = index=>{
-       this.setState({selectedAddressIndex: index});
+       this.setState({selectedAddressIndex: [index]});
             
         
     }
@@ -22,7 +22,7 @@ class AddressList extends React.Component {
         return (
             <React.Fragment>
             {addrList.map((addr, index)=><div key={index} onClick={()=> this.handleAddressSelect(index)} className='placeList'>{addr.Name}</div>)}
-            {selectedAddressIndex ? <div className='addressView'><AddressView address={addrList[selectedAddressIndex]} /></div>: null}
+            {selectedAddressIndex ? <div className='addressView'><AddressView address={addrList[selectedAddressIndex[0]]} /></div>: null}
             </React.Fragment>
         );
     }
