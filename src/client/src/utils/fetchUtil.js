@@ -16,8 +16,5 @@ export default function fetchData(url, callback) {
 	}).then(function(res) {
 		console.log('Request successful', res);
 		return res
-	//   })
-	//   .catch(function(error) {
-	//     log('Request failed', error)
 	});
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest -u",
     "local": "run-p local:*",
     "local:client": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.client.js --hot --watch",
     "local:server": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.server.js --watch",
@@ -114,6 +114,7 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
+    "setupFilesAfterEnv": ["<rootDir>__jest__/setupEnzyme.js"],
     "moduleNameMapper": {
       "@utils(.*)$": "<rootDir>/utils$1/",
       "@common(.*)$": "<rootDir>/components/common$1/",

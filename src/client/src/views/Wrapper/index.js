@@ -3,6 +3,8 @@ import React from 'react';
 // import CategorySelector from '../CategorySelector/CategorySelector';
 // import FinalSelectedList from '../FinalSelectedList/FinalSelectedList';
 import AddressForm from '../AddressForm/AddressForm';
+import Input from '../../components/Input/Input';
+import fetchData from '../../utils/fetchUtil';
 import './wrapper.css';
 
 class Wrapper extends React.Component {
@@ -19,18 +21,26 @@ class Wrapper extends React.Component {
     isOutsideClicked: !state.isOutsideClicked,
   }));
 
+  getPinData = (val) => fetchData(`https://api.postalpincode.in/pincode/${val}`);
+
   render() {
     const { savedValues, isOutsideClicked } = this.state;
     return (
-      <div
-        className="wrapper"
-        onClick={() => {
-          console.log("clicked outside")
-        }}
-      >
-        hello
-        <AddressForm></AddressForm>
-      </div>
+      <React.Fragment>
+        <div className="header">Header content</div>
+        <div
+          className="wrapper"
+          onClick={() => {
+            console.log("clicked outside")
+          }}
+        >
+          <AddressForm getPinData={this.getPinData}></AddressForm>
+          {/* <div className='inputWrap'>
+            <span>Pincode:</span>
+            <Input value="placeholder"/>
+          </div> */}
+        </div>
+      </React.Fragment>
     );
   }
 }

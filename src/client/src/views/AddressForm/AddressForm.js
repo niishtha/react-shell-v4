@@ -1,42 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './AddressForm.css';
-import fetchData from '../../utils/fetchUtil';
+// import './AddressForm.css';
+import Input from '../../components/Input/Input';
+import AddressView from '../../components/AddressView/AddressView';
+import validatePincode from '../../utils/validator';
 
 
-    class AddressForm extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {value: ''};
-      
-          this.handleChange = this.handleChange.bind(this);
-          this.handleSubmit = this.handleSubmit.bind(this);
+class AddressForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: 'placeholder',
+            addrList: [],
+            selectedAddressIndex: null
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleChange(event) {
+        let val = event.target.value
+        this.setState({value: val});
+        if(validatePincode(val)) {
+            this.props.getPinData(val).then(res=>{
+                this.setState({
+                    addrList: res[0]['PostOffice']
+                });
+            });
         }
-      
-        handleChange(event) {
-          this.setState({value: event.target.value});
-          fetchData(`https://api.postalpincode.in/pincode/${event.target.value}`).then(res=>{
-              console.log(res);
-          })
+    }
+
+    handleAddressSelect(index){
+        return () => {
+            console.log(index);
+            this.setState({selectedAddressIndex: index});
         }
-      
-        handleSubmit(event) {
-          alert('A name was submitted: ' + this.state.value);
-          event.preventDefault();
-        }
-      
-        render() {
-          return (
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Name:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-          );
-        }
-      }
+    }
+    
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        event.preventDefault();
+    }
+    
+    render() {
+        let {addrList, selectedAddressIndex, value} = this.state
+        return (
+        <div>
+            <label>
+            Pincode:
+            </label>
+            <Input value={value} onChangeProp={this.handleChange}/>
+            {addrList.length? <React.Fragment>
+                {addrList.map((addr, index)=><div onClick={this.handleAddressSelect(index)}>{addr.Name}</div>)}
+            </React.Fragment>: null}
+            {selectedAddressIndex ? <div><AddressView address={addrList[selectedAddressIndex]} /></div>: null}
+        </div>
+        );
+    }
+}
   
 
 AddressForm.propTypes = {
