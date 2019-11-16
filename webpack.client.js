@@ -45,19 +45,19 @@ module.exports = function(env){
         path: path.resolve('./dist/client'),
         prettyPrint: true,
       }),
-      new CopyWebpackPlugin([
-        { from: './src/offline', to: 'offline/[name].00000002.[ext]' },
-      ]),
-      new SWPrecacheWebpackPlugin({
-        cacheId: 'clarisights',
-        filename: 'serviceWorker.js',
-        staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
-        importScripts: [
-          'offline/offline.00000002.js',
-        ],
-        dontCacheBustUrlsMatching: /./,
-        minify: true,
-      }),
+      // new CopyWebpackPlugin([
+      //   { from: './src/offline', to: 'offline/[name].00000002.[ext]' },
+      // ]),
+      // new SWPrecacheWebpackPlugin({
+      //   cacheId: 'clarisights',
+      //   filename: 'serviceWorker.js',
+      //   staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
+      //   importScripts: [
+      //     'offline/offline.00000002.js',
+      //   ],
+      //   dontCacheBustUrlsMatching: /./,
+      //   minify: true,
+      // }),
       ...(isProd ? [
           new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
