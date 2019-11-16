@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "testAddrList": "jest src/client/src/components/AddressList/tests/",
+    "testInput": "jest src/client/src/components/InputTest/tests/",
+    "testValid": "jest src/client/src/utils/tests/",
     "local": "run-p local:*",
     "local:client": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.client.js --hot --watch",
     "local:server": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.server.js --watch",
