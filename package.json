@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest -u",
+    "test": "jest",
     "local": "run-p local:*",
     "local:client": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.client.js --hot --watch",
     "local:server": "STAGE=local APP_PUBLIC_PATH=/clarisights/dist/client/ webpack --mode production --config ./webpack.server.js --watch",

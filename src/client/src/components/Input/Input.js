@@ -6,7 +6,7 @@ const Input = ({value, onChangeProp}) => {
 			onChangeProp(e);
 		}
 	}
-	return <input placeholder={value} onChange={onChange}/>;
+	return <input value={value} onChange={onChange}/>;
 
 };
 

@@ -10,7 +10,7 @@ class AddressForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'placeholder',
+            value: '',
             addrList: [],
             selectedAddressIndex: null
         };
@@ -44,14 +44,16 @@ class AddressForm extends React.Component {
     }
     
     render() {
-        let {addrList, selectedAddressIndex, value} = this.state
+        let {addrList=[], selectedAddressIndex, value} = this.state
         return (
         <div>
-            <label>
-            Pincode:
-            </label>
-            <Input value={value} onChangeProp={this.handleChange}/>
-            {addrList.length? <AddressList addrList={addrList} />: null}
+            <div className='pincodeInput'>
+                <label>
+                Pincode:
+                </label>
+                <Input value={value} onChangeProp={this.handleChange}/>
+            </div>
+            {addrList && addrList.length? <AddressList addrList={addrList} />: <p>No matching results found</p>}
         </div>
         );
     }

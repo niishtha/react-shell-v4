@@ -11,7 +11,7 @@ describe('AddressForm', () => {
     const component = mount(
       <AddressForm getPinData={mockAPI} />
     )
-    expect(component.state('value')).toBe('placeholder');
+    expect(component.state('value')).toBe('');
     component.find('input').simulate('change', {target: {value: '110025'}});
     expect(component.state('value')).toBe('110025');
   });

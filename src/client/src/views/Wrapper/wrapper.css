@@ -1,13 +1,14 @@
 body {
   overflow: hidden;
   margin: 0px;
+  font-family: sans-serif;
 }
 
 .header {
   height: 20px;
   width: 100%;
   position: fixed;
-  background: #c1c1c1;
+  background: rgb(0, 152, 171);
   padding: 15px;
   text-align: center;
 }
@@ -19,9 +20,46 @@ body {
   width: 100%;
   padding-top: 50px;
 }
-.inputWrap {
+
+.pincodeInput {
+  margin: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.addrWrap {
+}
+
+.listWrap {
+  margin: 20px;
+  padding-bottom: 10px
+}
+
+.placeList {
+  display:list-item;
+  margin-left: 2px;
+  list-style-type: circle; 
+}
+
+.addressView {
+  margin: 20px;
+  border: 1px solid #d1d1d1;
+  padding: 5px;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.areaKeys {
+  margin-bottom: 3px;
+}
+
+.key {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 input {
